@@ -2,11 +2,11 @@
 
 ### Note:
 I used some specific npm packages for Ratings parts, I faced some issues and solved them with running the below lines:
-    npm add @mui/material
-    npm add @emotion/react @emotion/styled @mui/icons-material
-    npm add react/jsx-runtime
-    npm install --save react@latest
-    npm install --save react-dom@latest
+* npm add @mui/material
+* npm add @emotion/react @emotion/styled @mui/icons-material
+* npm add react/jsx-runtime
+* npm install --save react@latest
+* npm install --save react-dom@latest
 
 
 ## TL;DR
