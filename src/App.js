@@ -4,6 +4,7 @@ import './App.css'
 import { BrowserRouter, Route } from 'react-router-dom';
 import ListBooks from './ListBooks'
 import SearchBooks from './SearchBooks'
+import { debounce } from 'throttle-debounce';
 
 const allShelves = [
   { key: 'currentlyReading', name: 'Currently Reading' },
@@ -38,8 +39,8 @@ class BooksApp extends React.Component {
     }
   }
 
-  queryBooks = (query) => {
-    if (query) {
+  queryBooks = debounce(500, false, query => {
+    if (query.length >= 1) {
         BooksAPI.search(query).then(books => {
           if (books.error) {
             this.setState({ searchBooks: [] });
@@ -49,11 +50,11 @@ class BooksApp extends React.Component {
         });
 
     } else {
-      this.setState({ searchBooks: this.state.allBooks });
+      this.setState({ searchBooks: [] });
     }
 
 
-  }
+  });
 
 
   render(){
